@@ -1,5 +1,5 @@
 
-<main class="form-signin">
+<main class="form-signin" *ngIf="frmSwitch">
     <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
       <span class="h3 mb-3 fw-normal">Please sign In</span>
   
@@ -19,4 +19,37 @@
       </div>
       <button class="w-100 btn btn-lg btn-primary" type="submit">Log_in</button>
     </form>
+    <button class="mt-2 w-100 btn btn-lg btn-secondary" (click)="regsiterSwitch()">Register</button>
   </main>
+
+
+
+
+  <div class="w-50 m-auto form-register" *ngIf="frmSwitch==false">
+    <form [formGroup]="signUpForm" (ngSubmit)="onSignUp()">
+      <span class="h3 mb-3 fw-normal">Please Register</span>
+  
+      <div class="mt-2 form-floating">
+        <input type="text" class="form-control"  name="user" formControlName="name">
+        <label >user name</label>
+      </div>
+      <div class="mt-2 form-floating">
+        <input type="email" class="form-control"  name="user" formControlName="email">
+        <label >Email address</label>
+      </div>
+      <div class="form-floating">
+        <input type="password" class="form-control"  name="password" formControlName="password">
+        <label>Password</label>
+      </div>
+      <div class="mt-2 form-floating">
+        <input type="text" class="form-control"  name="user" formControlName="avatar">
+        <label >Avatar</label>
+      </div>
+  
+      <div class="checkbox mb-3">
+        
+      </div>
+      <button class="w-100 btn btn-lg btn-secondary" type="submit">Register</button>
+      <button class="mt-2  btn btn-lg btn-primary" type="submit" (click)="regsiterSwitch()">Login</button>
+    </form>
+  </div>

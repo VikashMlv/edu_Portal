@@ -10,6 +10,7 @@ export class AuthServiceService {
   //login Api
 
   public  loginApiUrl = "https://api.escuelajs.co/api/v1/auth/login";
+  public  registerApiUrl = "https://api.escuelajs.co/api/v1/users/";
 
   constructor(private http:HttpClient) { }
 
@@ -24,4 +25,22 @@ export class AuthServiceService {
     localStorage.removeItem('token')
 
   }
+
+  onRegister(obj:any){
+
+    return this.http.post(this.registerApiUrl,obj)
+
+  }
+
+  isLoggedIn(){
+    var token = localStorage.getItem('token');
+    if(token=="" || token ===undefined || token ===null){
+       return false;
+    }
+    else{
+      return true;
+    }
+  }
+
+  
 }

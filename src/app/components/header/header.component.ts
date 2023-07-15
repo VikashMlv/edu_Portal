@@ -12,7 +12,10 @@ export class HeaderComponent implements OnInit {
   constructor(private service:AuthServiceService,private router:Router) { }
 
   ngOnInit(): void {
+  
+
   }
+
 
 
   logout(){
